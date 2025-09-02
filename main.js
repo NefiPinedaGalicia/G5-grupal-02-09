@@ -36,19 +36,6 @@ const estudiantes = [
   { nombre: "Gabriela Soto", edad: 22, pais: "Paraguay", notas: [99, 97, 100] },
 ];
 
-document.getElementById("studentForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  let obj = {};
-  // Get form values
-  const name = document.getElementById("name").value.trim();
-  const age = document.getElementById("age").value;
-  const country = document.getElementById("country").value;
-  obj.nombre = name;
-  obj.edad = age;
-  obj.pais = country;
-  console.log(obj);
-});
-
 function calcularPromedio(notas) {
   if (notas.length === 0) return 0;
   const suma = notas.reduce((total, nota) => total + nota, 0);
@@ -60,7 +47,7 @@ function formatearNotas(notas) {
 }
 
 function renderizarEstudiantes() {
-  const tbody = document.querySelector("tbody");
+  const tbody = document.getElementById("studentsTableBody");
 
   tbody.innerHTML = "";
 
@@ -77,7 +64,7 @@ function renderizarEstudiantes() {
       <td class="p-3">${estudiante.pais}</td>
       <td class="p-3">${notasFormateadas}</td>
       <td class="p-3 font-bold text-gray-700">${promedio}</td>
-      <td class="p-3 space-x-2">
+      <td class="p-3 space-x-2 whitespace-nowrap">
         <button class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 cursor-pointer">
           Eliminar
         </button>
