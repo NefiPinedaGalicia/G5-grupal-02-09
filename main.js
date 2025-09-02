@@ -35,6 +35,7 @@
   },
   { nombre: "Gabriela Soto", edad: 22, pais: "Paraguay", notas: [99, 97, 100] },
 ];
+<<<<<<< HEAD
  */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -108,3 +109,65 @@ document.addEventListener("DOMContentLoaded", () => {
     botones[2].addEventListener("click", () => modificarNotas(botones[2]));
   });
 });
+=======
+
+document.getElementById("studentForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  let obj = {};
+  // Get form values
+  const name = document.getElementById("name").value.trim();
+  const age = document.getElementById("age").value;
+  const country = document.getElementById("country").value;
+  obj.nombre = name;
+  obj.edad = age;
+  obj.pais = country;
+  console.log(obj);
+});
+
+function calcularPromedio(notas) {
+  if (notas.length === 0) return 0;
+  const suma = notas.reduce((total, nota) => total + nota, 0);
+  return Math.round(suma / notas.length);
+}
+
+function formatearNotas(notas) {
+  return notas.join(" ");
+}
+
+function renderizarEstudiantes() {
+  const tbody = document.querySelector("tbody");
+
+  tbody.innerHTML = "";
+
+  estudiantes.forEach((estudiante) => {
+    const promedio = calcularPromedio(estudiante.notas);
+    const notasFormateadas = formatearNotas(estudiante.notas);
+
+    const fila = document.createElement("tr");
+    fila.className = "border-t border-gray-200";
+
+    fila.innerHTML = `
+      <td class="p-3 font-semibold">${estudiante.nombre}</td>
+      <td class="p-3">${estudiante.edad}</td>
+      <td class="p-3">${estudiante.pais}</td>
+      <td class="p-3">${notasFormateadas}</td>
+      <td class="p-3 font-bold text-gray-700">${promedio}</td>
+      <td class="p-3 space-x-2">
+        <button class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 cursor-pointer">
+          Eliminar
+        </button>
+        <button class="bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600 cursor-pointer">
+          Editar
+        </button>
+        <button class="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 cursor-pointer">
+          Agregar Nota
+        </button>
+      </td>
+    `;
+
+    tbody.appendChild(fila);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", renderizarEstudiantes);
+>>>>>>> 4089809728351ad195746da5bffa79e606c3a4d8
