@@ -35,3 +35,16 @@ const estudiantes = [
   },
   { nombre: "Gabriela Soto", edad: 22, pais: "Paraguay", notas: [99, 97, 100] },
 ];
+
+document.getElementById("studentForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  let obj = {};
+  // Get form values
+  const name = document.getElementById("name").value.trim();
+  const age = document.getElementById("age").value;
+  const country = document.getElementById("country").value;
+  obj.nombre = name;
+  obj.edad = age;
+  obj.pais = country;
+  console.log(obj);
+});
