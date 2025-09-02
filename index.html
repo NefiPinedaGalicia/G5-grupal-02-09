@@ -3,9 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="./main.js"></script>
     <link rel="stylesheet" href="./output.css" />
+    <title>Evaluacion Funval</title>
   </head>
-  <body></body>
+  <body
+    class="h-screen flex items-center justify-center bg-gradient-to-br from-slate-800 via-slate-900 to-black">
+    <div class="w-11/12 bg-white shadow-xl rounded-2xl p-6">
+      <div class="flex justify-between items-center mb-2">
+        <img src="./img/fun.png" class="h-[50px]" alt="" />
+        <button
+          class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-500 text-white text-xl shadow hover:bg-blue-600 cursor-pointer">
+          +
+        </button>
+      </div>
+
+      <div class="overflow-hidden rounded-lg border-gray-500 border-2">
+        <table class="w-full text-left">
+          <thead class="bg-gray-300 text-gray-700 uppercase text-sm">
+            <tr>
+              <th class="p-3">Nombre</th>
+              <th class="p-3">Edad</th>
+              <th class="p-3">País</th>
+              <th class="p-3">Notas</th>
+              <th class="p-3">Promedio</th>
+              <th class="p-3">Acciones</th>
+            </tr>
+          </thead>
+
+          <tbody class="text-gray-600">
+            <tr class="border-y-2 border-b-gray-500">
+              <td class="p-3 font-semibold">Mario</td>
+              <td class="p-3">30</td>
+              <td class="p-3">Argentina</td>
+              <td class="p-3">100 90 85 90 0</td>
+              <td class="p-3 font-bold text-gray-700">80</td>
+              <td class="p-3 space-x-2">
+                <button
+                  class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 cursor-pointer">
+                  Eliminar
+                </button>
+                <button
+                  class="bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600 cursor-pointer">
+                  Editar
+                </button>
+                <button
+                  class="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 cursor-pointer">
+                  Agregar Nota
+                </button>
+              </td>
+            </tr>
+            <tr class="border-t border-gray-200">
+              <td class="p-3 font-semibold">David</td>
+              <td class="p-3">30</td>
+              <td class="p-3">Chile</td>
+              <td class="p-3">100 90 85 90</td>
+              <td class="p-3 font-bold text-gray-700">90</td>
+              <td class="p-3 space-x-2">
+                <button
+                  class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 cursor-pointer">
+                  Eliminar
+                </button>
+                <button
+                  class="bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600 cursor-pointer">
+                  Editar
+                </button>
+                <button
+                  class="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 cursor-pointer">
+                  Agregar Nota
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
 </html>
