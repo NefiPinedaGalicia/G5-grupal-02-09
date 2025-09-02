@@ -1,4 +1,4 @@
-const estudiantes = [
+/* const estudiantes = [
   { nombre: "Juan Pérez", edad: 20, pais: "México", notas: [80, 90, 85] },
   { nombre: "María López", edad: 22, pais: "Argentina", notas: [70, 75, 72] },
   { nombre: "Carlos Ramírez", edad: 21, pais: "Chile", notas: [88, 92, 95] },
@@ -35,6 +35,81 @@ const estudiantes = [
   },
   { nombre: "Gabriela Soto", edad: 22, pais: "Paraguay", notas: [99, 97, 100] },
 ];
+<<<<<<< HEAD
+ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  function eliminarFila(boton) {
+    const fila = boton.closest("tr");
+    const nombre = fila.querySelector("td").innerText;
+
+    const confirmacion = confirm(
+      `¿Estás seguro de que deseas eliminar a "${nombre}"?`
+    );
+
+    if (confirmacion) {
+      fila.remove();
+      alert(`Alumno "${nombre}" eliminado correctamente.`);
+    }
+  }
+
+  function editarFila(boton) {
+    const fila = boton.closest("tr");
+    const celdas = fila.querySelectorAll("td");
+
+    const nombre = prompt("Nuevo nombre:", celdas[0].innerText);
+    const edad = prompt("Nueva edad:", celdas[1].innerText);
+    const pais = prompt("Nuevo país:", celdas[2].innerText);
+
+    if (nombre && edad && pais) {
+      celdas[0].innerText = nombre;
+      celdas[1].innerText = edad;
+      celdas[2].innerText = pais;
+    }
+  }
+
+  function modificarNotas(boton) {
+    const fila = boton.closest("tr");
+    const celdas = fila.querySelectorAll("td");
+    const notasCelda = celdas[3];
+    const promedioCelda = celdas[4];
+
+    let notas = notasCelda.innerText.trim().split(" ").map(Number);
+
+    if (notas.length !== 5) {
+      alert("El estudiante debe tener exactamente 5 notas para modificarlas.");
+      return;
+    }
+
+    for (let i = 0; i < 5; i++) {
+      const nuevaNota = prompt(
+        `Modificar nota ${i + 1} (actual: ${notas[i]}):`,
+        notas[i]
+      );
+      const notaNum = parseInt(nuevaNota);
+
+      if (!isNaN(notaNum) && notaNum >= 0 && notaNum <= 100) {
+        notas[i] = notaNum;
+      } else {
+        alert("Nota inválida. Se mantuvo la nota original.");
+      }
+    }
+
+    notasCelda.innerText = notas.join(" ");
+
+    const suma = notas.reduce((a, b) => a + b, 0);
+    const promedio = Math.round(suma / notas.length);
+    promedioCelda.innerText = promedio;
+  }
+
+  document.querySelectorAll("tbody tr").forEach((fila) => {
+    const botones = fila.querySelectorAll("button");
+    botones[0].addEventListener("click", () => eliminarFila(botones[0]));
+    botones[1].addEventListener("click", () => editarFila(botones[1]));
+    botones[2].addEventListener("click", () => modificarNotas(botones[2]));
+  });
+});
+=======
 
 document.getElementById("studentForm").addEventListener("submit", function (e) {
   e.preventDefault();
@@ -95,3 +170,4 @@ function renderizarEstudiantes() {
 }
 
 document.addEventListener("DOMContentLoaded", renderizarEstudiantes);
+>>>>>>> 4089809728351ad195746da5bffa79e606c3a4d8
