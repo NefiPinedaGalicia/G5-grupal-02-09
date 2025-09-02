@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="output.css" />
+    <script src="main.js" defer></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <form id="studentForm">
+          <div class="form-group">
+            <label for="name">Nombre completo:</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Ej: Juan Pérez"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="age">Edad:</label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              placeholder="Ej: 20"
+              min="1"
+              max="120"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="country">País de origen:</label>
+            <select id="country" name="country" required>
+              <option value="">-- Seleccione un país --</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Bolivia">Bolivia</option>
+              <option value="Chile">Chile</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="México">México</option>
+              <option value="Paraguay">Paraguay</option>
+              <option value="Perú">Perú</option>
+              <option value="Uruguay">Uruguay</option>
+              <option value="Venezuela">Venezuela</option>
+            </select>
+          </div>
+
+          <button type="submit">Registrar Estudiante</button>
+        </form>
+
+        <div class="result" id="result"></div>
+      </div>
+    </div>
+  </body>
+</html>
